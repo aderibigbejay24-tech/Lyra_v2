@@ -36,8 +36,8 @@ export default function Page() {
         <Scene12Dashboard />
       </main>
       <footer className="py-6 text-center text-xs text-slate-400 border-t border-slate-200">
-        Lyra Lead Guardian · Prototype build by Swiftly Build Inc. · Zero backend — all data mocked ·{" "}
-        <span className="text-fornest-orange">Fornest Automotive</span> demo
+        Lyra Lead Guardian <span className="text-fornest-orange font-semibold">v3</span> · Built by Swiftly Build Inc. · Zero backend — all data mocked ·{" "}
+        <span className="text-fornest-orange">Fornest Automotive</span> · Spec v2.1 · April 2026
       </footer>
     </ScenarioProvider>
   );

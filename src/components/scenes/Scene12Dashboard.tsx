@@ -111,13 +111,39 @@ export function Scene12Dashboard() {
           </Card>
         </div>
 
+        {/* Tech stack pill row */}
+        <div className="flex flex-wrap gap-2 justify-center">
+          {[
+            "FastAPI · Fly.io",
+            "Claude Haiku 4.5",
+            "Make.com",
+            "Evolution API / WhatsApp",
+            "Telegram Bot API",
+            "Gmail API",
+            "TidyCal",
+            "Google Sheets",
+            "HillzDealer",
+          ].map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full border border-slate-200"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
         {/* CTA */}
         <Card className="bg-slate-900 border-0 text-white">
           <CardContent className="p-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <p className="text-2xl font-bold mb-1">Ready to go live?</p>
-              <p className="text-slate-400">
-                This prototype proves the flow. Swiftly Build Inc. wires the real integrations — Make.com, FastAPI, Evolution API — in 2 sprints.
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl font-bold">Ready to go live?</span>
+                <span className="px-2 py-0.5 bg-fornest-orange text-white text-xs font-bold rounded-full">v3</span>
+              </div>
+              <p className="text-slate-400 text-sm">
+                The FastAPI backend is built and tested (115 tests · 85% coverage · 20/20 golden evals).
+                Swiftly Build Inc. wires real Make.com, Evolution API, and Gmail integrations in 2 sprints.
               </p>
             </div>
             <a

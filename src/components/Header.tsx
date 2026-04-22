@@ -26,7 +26,7 @@ export function Header() {
             Lead Guardian
           </span>
           <span className="hidden md:flex items-center gap-1 ml-3 px-2 py-0.5 bg-fornest-orange-light text-fornest-orange text-xs font-semibold rounded-full">
-            DEMO
+            v3 · DEMO
           </span>
         </div>
 

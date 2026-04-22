@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Lyra Lead Guardian — Fornest Automotive Demo",
+  title: "Lyra Lead Guardian v3 — Fornest Automotive Demo",
   description:
-    "Interactive prototype of the Lyra Lead Guardian pipeline for Fornest Automotive. Click through 12 scenes to experience the full lead → approval → booking flow.",
+    "Interactive prototype of the Lyra v3 Lead Guardian pipeline for Fornest Automotive. Click through 12 scenes to experience the full lead → approval → booking flow. Built by Swiftly Build Inc.",
 };
 
 export const viewport: Viewport = {
