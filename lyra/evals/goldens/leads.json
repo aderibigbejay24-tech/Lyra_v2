@@ -1,0 +1,240 @@
+[
+  {
+    "id": "G-001",
+    "description": "Clean ADF — Honda Accord",
+    "category": "adf_clean",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2020</year><make>Honda</make><model>Accord</model><trim>Sport 1.5T</trim><vin>1HGCV1F34LA012345</vin><stock>FN-24-0112</stock><price type=\"asking\" currency=\"CAD\">26995</price></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Priya Singh</name><email>priya.singh@example.com</email><phone type=\"voice\">403-555-0199</phone></contact><comments>Hi, is this Accord still available? Wondering about financing and if I can come Saturday.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "priya.singh@example.com",
+      "parse_name": "Priya Singh",
+      "parse_vin": "1HGCV1F34LA012345",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-002",
+    "description": "Clean ADF — BMW 330i",
+    "category": "adf_clean",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2019</year><make>BMW</make><model>330i</model><trim>xDrive</trim><stock>FN-24-0155</stock><price type=\"asking\" currency=\"CAD\">38990</price></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Marcus Leung</name><email>marcus.leung@example.com</email><phone>416-555-0187</phone></contact><comments>Is the 330i still available? Very interested.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "marcus.leung@example.com",
+      "parse_name": "Marcus Leung",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-003",
+    "description": "Clean ADF — Toyota Tundra (truck routes to Ben)",
+    "category": "adf_clean",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2021</year><make>Toyota</make><model>Tundra</model><trim>SR5 TRD Off-Road</trim><stock>FN-24-0098</stock></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Derek Osei</name><email>derek.osei@example.com</email></contact><comments>Looking at the Tundra. Is it 4WD? What's the towing capacity?</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "derek.osei@example.com",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-004",
+    "description": "CarGurus clean ADF",
+    "category": "adf_clean",
+    "source": "cargurus",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2020</year><make>Honda</make><model>Accord</model><stock>FN-24-0112</stock></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Anika Patel</name><email>anika.patel@example.com</email><phone>587-555-0234</phone></contact><comments>Saw this on CarGurus. Still available?</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "anika.patel@example.com",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-005",
+    "description": "ADF with financing question",
+    "category": "adf_clean",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2022</year><make>Mazda</make><model>CX-5</model><stock>FN-24-0071</stock></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Fatima Al-Rashid</name><email>fatima@example.com</email></contact><comments>Can I get financing? New to Canada, not sure about my credit options.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "fatima@example.com",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-006",
+    "description": "Plain text — minimal",
+    "category": "plain_text",
+    "source": "autotrader",
+    "raw": "Hi, is the Honda Accord still available? Please email me back at john.doe@example.com. Thanks!",
+    "assertions": {
+      "parse_email": "john.doe@example.com",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-007",
+    "description": "Plain text — with phone and year",
+    "category": "plain_text",
+    "source": "autotrader",
+    "raw": "Looking at the 2021 Toyota Tundra. Can I book a test drive? Call me at 403-555-0177. jane.smith@example.com",
+    "assertions": {
+      "parse_email": "jane.smith@example.com",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-008",
+    "description": "Plain text — with VIN",
+    "category": "plain_text",
+    "source": "cargurus",
+    "raw": "Interested in VIN 1HGCV1F34LA012345. Is it accident-free? buyer@example.com",
+    "assertions": {
+      "parse_email": "buyer@example.com",
+      "parse_vin": "1HGCV1F34LA012345",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-009",
+    "description": "Plain text — vague (is this for sale)",
+    "category": "plain_text",
+    "source": "autotrader",
+    "raw": "is this still for sale thx buyer99@example.com",
+    "assertions": {
+      "parse_email": "buyer99@example.com",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-010",
+    "description": "Plain text — Spanish language",
+    "category": "plain_text",
+    "source": "autotrader",
+    "raw": "Hola, estoy interesado en el Honda Accord 2020. Precio: $26,995. carlos@example.com 403-555-0199",
+    "assertions": {
+      "parse_email": "carlos@example.com",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-011",
+    "description": "Hostile — AMVIC + BBB + lawyer",
+    "category": "hostile",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><stock>FN-24-0155</stock></vehicle><customer><contact primarycontact=\"1\"><name part=\"full\">Jordan</name><email>jordan@example.com</email></contact><comments>3rd time I've emailed. If I don't hear back in 24h I am reporting you to AMVIC and filing a complaint with the BBB. My lawyer is aware.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "jordan@example.com",
+      "should_escalate": true
+    }
+  },
+  {
+    "id": "G-012",
+    "description": "Hostile — lawsuit threat",
+    "category": "hostile",
+    "source": "autotrader",
+    "raw": "This is my final warning. I will file a lawsuit if you don't respond. threat@example.com",
+    "assertions": {
+      "parse_email": "threat@example.com",
+      "should_escalate": true,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-013",
+    "description": "Hostile — consumer protection",
+    "category": "hostile",
+    "source": "cargurus",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><customer><contact primarycontact=\"1\"><email>angry@example.com</email></contact><comments>I am contacting consumer protection about your misleading ad. This is unacceptable.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "angry@example.com",
+      "should_escalate": true
+    }
+  },
+  {
+    "id": "G-014",
+    "description": "Hostile — price match demand",
+    "category": "hostile",
+    "source": "autotrader",
+    "raw": "I found the same car at AutoCentral for $24,500. You need to price match or I'm going elsewhere. bargain@example.com",
+    "assertions": {
+      "parse_email": "bargain@example.com",
+      "should_escalate": true,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-015",
+    "description": "Hostile — sue threat",
+    "category": "hostile",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><customer><contact primarycontact=\"1\"><name part=\"full\">Angry Customer</name><email>angry2@example.com</email></contact><comments>I will sue you if the car is not as described. It had mechanical issues that weren't disclosed.</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "angry2@example.com",
+      "should_escalate": true
+    }
+  },
+  {
+    "id": "G-016",
+    "description": "Edge — empty ADF payload",
+    "category": "edge",
+    "source": "autotrader",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect></prospect></adf>",
+    "assertions": {
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-017",
+    "description": "Edge — malformed XML",
+    "category": "edge",
+    "source": "autotrader",
+    "raw": "<adf><prospect><broken>xml here</prospect></adf>",
+    "assertions": {
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-018",
+    "description": "Edge — duplicate email in body",
+    "category": "edge",
+    "source": "autotrader",
+    "raw": "Reply to priya@example.com or priya.backup@example.com. I prefer priya@example.com",
+    "assertions": {
+      "parse_email": "priya@example.com",
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-019",
+    "description": "Edge — out of stock vehicle hint",
+    "category": "edge",
+    "source": "cargurus",
+    "raw": "<?xml version=\"1.0\"?><adf><prospect><vehicle interest=\"buy\" status=\"used\"><year>2015</year><make>Ferrari</make><model>488</model></vehicle><customer><contact primarycontact=\"1\"><email>rich@example.com</email></contact><comments>Is the Ferrari available?</comments></customer></prospect></adf>",
+    "assertions": {
+      "parse_email": "rich@example.com",
+      "should_escalate": false,
+      "no_parse_warnings": true
+    }
+  },
+  {
+    "id": "G-020",
+    "description": "Edge — completely empty payload",
+    "category": "edge",
+    "source": "autotrader",
+    "raw": "",
+    "assertions": {
+      "should_escalate": false,
+      "has_parse_warnings": true
+    }
+  }
+]
